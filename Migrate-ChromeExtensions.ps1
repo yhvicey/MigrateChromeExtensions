@@ -18,6 +18,19 @@ param(
 )
 
 # Prepare
+$Script:ErrorActionPreference = "Stop";
+if (Test-Path Env:ChromeChannel) {
+    $ChromeChannel = $env:ChromeChannel;
+}
+if (Test-Path Env:EdgeChannel) {
+    $EdgeChannel = $env:EdgeChannel;
+}
+if (Test-Path Env:WhenConflict) {
+    $WhenConflict = $env:WhenConflict;
+}
+if (Test-Path Env:Locale) {
+    $Locale = $env:Locale;
+}
 $lang = $Locale.Split("_")[0];
 $preferEdge = $WhenConflict -eq "PreferEdge";
 
